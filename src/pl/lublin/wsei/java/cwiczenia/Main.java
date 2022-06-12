@@ -2,9 +2,17 @@ package pl.lublin.wsei.java.cwiczenia;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("alfa\tsin(alfa)\n");
-        for (int i = 0; i < 370; i+=10) {
-            System.out.printf("%d\t%f\n", i, Math.sin(i/360.0*2*Math.PI));
+
+        double potega = 1;
+        double suma = 0;
+        System.out.println("arg\tlog(arg)\tsum(arg)");
+        for (int i = 1; i <= 11; i++) {
+            suma += potega;
+            double log = (Math.log(potega) / Math.log(2));
+            System.out.printf("%.0f\t\t%.0f\t\t%.0f\n", potega, log, suma);
+            potega = Math.pow(2, i);
         }
+
     }
 }
+
