@@ -1,17 +1,20 @@
 package pl.lublin.wsei.java.cwiczenia;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        double potega = 1;
-        double suma = 0;
-        System.out.println("arg\tlog(arg)\tsum(arg)");
-        for (int i = 1; i <= 11; i++) {
-            suma += potega;
-            double log = (Math.log(potega) / Math.log(2));
-            System.out.printf("%.0f\t\t%.0f\t\t%.0f\n", potega, log, suma);
-            potega = Math.pow(2, i);
-        }
+        Scanner input = new Scanner(System.in);
+        int num1 = 0, num2 = 0;
+        do {
+            System.out.println("Podaj liczbę, które mam dodać: ");
+            num1 = input.nextInt();
+            num2 = input.nextInt();
+            if ((num1 == 0) || (num2 == 0)) break;
+            System.out.printf("Wynik dodawania %d + %d = %d%n", num1, num2, num1 + num2);
+
+        } while (true);
 
     }
 }
