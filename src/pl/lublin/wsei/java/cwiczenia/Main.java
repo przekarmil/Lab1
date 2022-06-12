@@ -1,30 +1,30 @@
 package pl.lublin.wsei.java.cwiczenia;
 
-import java.util.Scanner;
-
-//  Proszę usunąć modyfikator static z metody leftPad. Co się stanie? | Błąd
-//  proszę przywrócić static i zamienić public na private – co się stanie? | Nic
+import java.util.Random;
 
 public class Main {
-    public static String leftPad(String aText, char aChar, int aWidth){
-        String res = aText;
-        for (int i = 0; i < aWidth-aText.length(); i++) {
-            res = aChar + res;
-        }
-        char[] resArray = res.toCharArray();
-        for (int i = 0; i < resArray.length; i++) {
-            if(Character.isLowerCase(resArray[i])){
-                resArray[i] = Character.toUpperCase(resArray[i]);
-            }
+
+    public static void main(String[] args) {
+
+        int[] liczby = new int[30];
+        Random rnd = new Random();
+
+        for (int i = 0; i < 30; i++) {
+            liczby[i] = rnd.nextInt();
+            ;
         }
 
-        return new String(resArray);
-    }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj Liczbe do konwersji: ");
-        int liczba = scanner.nextInt();
-        System.out.printf("DEC = %d\tBIN = %s\tHEX = %s\n",  liczba,
-                leftPad(Integer.toBinaryString(liczba), '0', 8 ), leftPad(Integer.toHexString(liczba), '0', 8));
+        int mx = Integer.MAX_VALUE;
+        int mn = Integer.MIN_VALUE;
+        long avg = 0;
+
+        for (int i : liczby) {
+            System.out.println(i);
+            if (i < mn) mn = 1;
+            if (i > mx) mx = 1;
+            avg += 1;
+        }
+        System.out.printf("Min = %d, Max = %d, AVG = %f", mn, mx, (float)avg/liczby.length);
+
     }
 }
